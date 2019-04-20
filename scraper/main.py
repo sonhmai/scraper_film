@@ -2,12 +2,12 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import os
 
-from scraper.models import Movie
+from scraper.models_old import Movie
 from datetime import datetime
 
 
 path_module = os.path.dirname(os.path.abspath(__file__))
-path_chromedriver = os.path.join(path_module, 'chromedriver.exe')
+path_chromedriver = os.path.join(path_module, 'chromedriver2.44.exe')
 
 
 def get_movies_info(infos, session):
