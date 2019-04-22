@@ -1,6 +1,5 @@
-from flask import jsonify, Blueprint, request
-bp = Blueprint('api', __name__)
-
+from flask import jsonify, request
+from app.api import bp
 from app.models import Movie
 from app.api.errors import bad_request
 from sqlalchemy import func

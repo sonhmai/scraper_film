@@ -17,4 +17,5 @@ from app.models import Movie
 
 from app import routes  # register main routes
 from app.api import movies  # register the api-movies routes
+from app.api import users
 app.register_blueprint(api_blueprint, url_prefix='/api')
