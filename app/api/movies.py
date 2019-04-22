@@ -32,6 +32,9 @@ def update_movie(movie_id):
     if 'title' not in payload or 'genre' not in payload or 'start_date' not in payload:
         return bad_request('not valid. json body must include: title, genre, start_date.')
     movie = Movie.query.get_or_404(movie_id)
+    # check if title was used
+    if Movie.query.filter(func.lower(Movie.title) == func.lower(payload['title'])).first():
+        return bad_request(f"Title {payload['title']} was used already. Choose another.")
     movie.title = payload['title']
     movie.genre = payload['genre']
     # movie.start_date accepts Python date obj
