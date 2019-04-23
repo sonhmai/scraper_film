@@ -1,8 +1,10 @@
 import time
 from bs4 import BeautifulSoup
-
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 from scraper.main import get_movies_info, get_browser
-from scraper import Session
+from app import db_cloudsql
+
 
 if __name__ == '__main__':
     browser = get_browser()
@@ -11,6 +13,8 @@ if __name__ == '__main__':
     time.sleep(0.1)  # wait for page to load
 
     # db sesion
+    engine = create_engine(db_cloudsql)
+    Session = sessionmaker(bind=engine)
     session = Session()
 
     soup = BeautifulSoup(browser.page_source, features='html.parser')

@@ -7,7 +7,13 @@ from datetime import datetime
 
 
 path_module = os.path.dirname(os.path.abspath(__file__))
-path_chromedriver = os.path.join(path_module, 'chromedriver2.44.exe')
+# checking the OS app is running on
+if os.name == 'nt':
+    # running on windows, use driver for windows
+    path_chromedriver = os.path.join(path_module, 'chromedriver.exe')
+else:
+    # can be 'java' or 'posix', but I only use posix so not checking for java here
+    path_chromedriver = os.path.join(path_module, 'chromedriver2.44.exe')
 
 
 def get_movies_info(infos, session):

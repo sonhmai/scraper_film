@@ -3,8 +3,8 @@ from app import db
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    username = db.Column(db.String, index=True, unique=True)
-    password_hash = db.Column(db.String)
+    username = db.Column(db.String(50), index=True, unique=True)
+    password_hash = db.Column(db.String(128))
 
     def to_dict(self):
         return {
@@ -28,8 +28,8 @@ class User(db.Model):
 
 class Movie(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    title = db.Column(db.String, unique=True)
-    genre = db.Column(db.String)
+    title = db.Column(db.String(128), unique=True)
+    genre = db.Column(db.String(50))
     start_date = db.Column(db.Date)
 
     def __repr__(self):
