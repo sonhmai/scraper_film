@@ -6,6 +6,25 @@ class User(db.Model):
     username = db.Column(db.String, index=True, unique=True)
     password_hash = db.Column(db.String)
 
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'username': self.username
+        }
+
+    @staticmethod
+    def to_collection():
+        users = User.query.all()
+        res = {
+            'items': [
+                user.to_dict() for user in users
+            ],
+            '_meta': {
+                'num': len(users)
+            }
+        }
+        return res
+
 
 class Movie(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
