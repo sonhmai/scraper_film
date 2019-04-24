@@ -23,5 +23,6 @@ if __name__ == '__main__':
     if len(infos) == 0:
         print('cannot find tag.')
     else:
+        # when we have movies (div that have class product-info)
         get_movies_info(infos, session)
-        session.commit()
+        # session.commit()
