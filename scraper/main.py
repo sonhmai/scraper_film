@@ -20,7 +20,6 @@ def get_movies_info(infos, session):
     """
     parses movie information (title, genre, start_date) from a list
     of Tag div (class='product-info')
-
     :param infos: list of bs4.element.Tag('div') containing movie info
     :return:
     """
