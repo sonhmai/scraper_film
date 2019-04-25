@@ -2,12 +2,12 @@ import time
 from bs4 import BeautifulSoup
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from scraper.main import get_movies_info, get_browser
+from scraper.main import get_movies_info, get_chrome_webdriver
 from app import db_cloudsql
 
 
 if __name__ == '__main__':
-    browser = get_browser()
+    browser = get_chrome_webdriver()
     url_phimsapchieu = 'https://www.cgv.vn/default/movies/coming-soon-1.html'
     browser.get(url_phimsapchieu)
     time.sleep(0.1)  # wait for page to load

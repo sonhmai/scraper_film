@@ -47,7 +47,7 @@ def get_movies_info(infos, session):
             print('--------------')
 
 
-def get_browser():
+def get_chrome_webdriver():
     # add args to tell Selenium to not actually open a window
     chrome_options = Options()
     chrome_options.add_argument('--headless')
@@ -56,5 +56,8 @@ def get_browser():
     browser = webdriver.Chrome(executable_path=path_chromedriver,
                                chrome_options=chrome_options)
     return browser
+
+
+
 
 
